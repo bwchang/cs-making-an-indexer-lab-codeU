@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.Collection;
 
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
@@ -20,10 +21,12 @@ public class TermCounter {
 	
 	private Map<String, Integer> map;
 	private String label;
+	private int size;
 	
 	public TermCounter(String label) {
 		this.label = label;
 		this.map = new HashMap<String, Integer>();
+		this.size = 0;
 	}
 	
 	public String getLabel() {
@@ -33,11 +36,10 @@ public class TermCounter {
 	/**
 	 * Returns the total of all counts.
 	 * 
-	 * @return
+	 * @return size
 	 */
 	public int size() {
-        // TODO: fill this in.
-		return -1;
+		return size;
 	}
 
 	/**
@@ -78,6 +80,7 @@ public class TermCounter {
 		for (int i=0; i<array.length; i++) {
 			String term = array[i];
 			incrementTermCount(term);
+			size++;
 		}
 	}
 
